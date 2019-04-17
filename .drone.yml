@@ -1,3 +1,6 @@
+workspace:
+  base: /build
+
 pipeline:
   build:
     image: adoptopenjdk/maven-openjdk11
@@ -6,6 +9,8 @@ pipeline:
       - mvn clean
       - mvn install
       - mvn package
+    mount:
+      - ./target
     when:
       branch: [ master, develop ]
       event: push
@@ -14,20 +19,23 @@ pipeline:
     image: drillster/drone-volume-cache
     rebuild: true
     mount:
-      - ./
-    volumes:
-      - /tmp/cache:/cache
+      - ./target
     ttl: 7
     when:
       branch: [ master, develop ]
       event: push
-  docker-build:
     
-  deploy:
-    image: plugins/docker
-    dockerfile: Dockerfile
+#  deploy:
+#    image: plugins/docker
+#    dockerfile: ./docker/Dockerfile
+#    mount:
+#      - ./target
     
-services:
-  drone_mariadb:
-    image: mariadb:latest
-  
+#services:
+#  database:
+#    image: mariadb:latest
+#    environment:
+#      - MYSQL_ROOT_PASSWORD=ROOTPW
+#      - MYSQL_USER=test
+#      - MYSQL_PASSWORD=TESTPW
+#      - MYSQL_DATABASE=testdb
