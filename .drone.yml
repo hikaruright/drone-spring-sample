@@ -21,6 +21,8 @@ pipeline:
     when:
       branch: [ master, develop ]
       event: push
+  docker-build:
+    
   deploy:
     image: plugins/docker
     dockerfile: Dockerfile
