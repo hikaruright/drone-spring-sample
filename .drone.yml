@@ -25,17 +25,17 @@ pipeline:
       branch: [ master, develop ]
       event: push
     
-#  deploy:
-#    image: plugins/docker
-#    dockerfile: ./docker/Dockerfile
-#    mount:
-#      - ./target
+  deploy:
+    image: plugins/docker
+    dockerfile: Dockerfile
+    mount:
+      - ./target
     
-#services:
-#  database:
-#    image: mariadb:latest
-#    environment:
-#      - MYSQL_ROOT_PASSWORD=ROOTPW
-#      - MYSQL_USER=test
-#      - MYSQL_PASSWORD=TESTPW
-#      - MYSQL_DATABASE=testdb
+services:
+  database:
+    image: mariadb:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=ROOTPW
+      - MYSQL_USER=test
+      - MYSQL_PASSWORD=TESTPW
+      - MYSQL_DATABASE=testdb
