@@ -11,10 +11,9 @@ RUN ln -s /opt/apache-tomcat-${TOMCAT_VERSION} ${TOMCAT_HOME}
 RUN rm -rf ${TOMCAT_HOME}/webapps/*
 
 RUN ls /
-RUN ls /tmp
-RUN find / boot-sample-0.0.1-SNAPSHOT.war
+# RUN find / boot-sample-0.0.1-SNAPSHOT.war
 
-RUN cp /build/target/boot-sample-0.0.1-SNAPSHOT.war ${TOMCAT_HOME}/webapps/
+# RUN cp /build/target/boot-sample-0.0.1-SNAPSHOT.war ${TOMCAT_HOME}/webapps/
 
 EXPOSE 8080
 
