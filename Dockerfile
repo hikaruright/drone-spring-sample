@@ -10,6 +10,7 @@ RUN tar -C /opt -xvzf /tmp/apache-tomcat.tar.gz
 RUN ln -s /opt/apache-tomcat-${TOMCAT_VERSION} ${TOMCAT_HOME}
 RUN rm -rf ${TOMCAT_HOME}/webapps/*
 
+RUN ls /
 RUN ls /build
 RUN ls /build/target
 
