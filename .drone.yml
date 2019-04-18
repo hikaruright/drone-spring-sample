@@ -2,6 +2,7 @@ workspace:
   base: /build
 
 pipeline:
+  
   build:
     image: adoptopenjdk/maven-openjdk11
     pull: true
@@ -30,13 +31,18 @@ pipeline:
       event: push
     
   deploy:
-    image: plugins/docker
+    # image: plugins/docker
     dockerfile: Dockerfile
     mount:
       - /build/target
+    when:
+      branch: [ master, develop ]
+      event: push
+  publish:
+    image: plugins/docker
     settings:
       repo: demo/sample
-      tags: 0.0.1
+      auto_tag: true
     when:
       branch: [ master, develop ]
       event: push
