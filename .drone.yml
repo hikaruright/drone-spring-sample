@@ -35,11 +35,8 @@ pipeline:
     mount:
       - /build/target
     settings:
-      repo: demo/sample
-      registory: localhost:5000
-      tags:
-      - latest
-      - 0.0.1
+      repo: spring-sample
+      auto_tag: true
     when:
       branch: [ master, develop ]
       event: push
