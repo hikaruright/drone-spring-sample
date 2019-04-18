@@ -34,9 +34,8 @@ pipeline:
     dockerfile: Dockerfile
     mount:
       - /build/target
-    settings:
-      repo: spring-sample
-      auto_tag: true
+    repo: spring-sample
+    auto_tag: true
     when:
       branch: [ master, develop ]
       event: push
