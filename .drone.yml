@@ -34,8 +34,10 @@ pipeline:
     dockerfile: Dockerfile
     mount:
       - /build/target
-    repo: spring-sample
     auto_tag: true
+    insecure: true
+  	repo: localhost:5000/spring/boot-sample
+  	registry: localhost:5000
     when:
       branch: [ master, develop ]
       event: push
