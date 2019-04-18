@@ -9,27 +9,31 @@ pipeline:
       - mvn clean
       - mvn install
       - mvn package
+      - cp /build/target/boot-sample-0.0.1-SNAPSHOT.war /build
     mount:
       - ./target
     when:
       branch: [ master, develop ]
       event: push
       
-  rebuild-cache:
-    image: drillster/drone-volume-cache
-    rebuild: true
-    mount:
-      - ./target
-    ttl: 7
-    when:
-      branch: [ master, develop ]
-      event: push
+  # rebuild-cache:
+  #   image: drillster/drone-volume-cache
+  #   rebuild: true
+  #   mount:
+  #     - ./target
+  #   ttl: 7
+  #   when:
+  #     branch: [ master, develop ]
+  #     event: push
     
   deploy:
     image: plugins/docker
     dockerfile: Dockerfile
     mount:
       - ./target
+    when:
+      branch: [ master, develop ]
+      event: push
     
 services:
   database:
