@@ -36,7 +36,7 @@ pipeline:
       - /build/target
     settings:
       repo: demo/sample
-      tags: latest
+      tags: 0.0.1
     when:
       branch: [ master, develop ]
       event: push
