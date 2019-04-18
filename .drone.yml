@@ -41,7 +41,7 @@ pipeline:
     when:
       branch: [ master, develop ]
       event: push
-    
+
 services:
   database:
     image: mariadb:latest
