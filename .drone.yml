@@ -36,7 +36,10 @@ pipeline:
       - /build/target
     settings:
       repo: demo/sample
-      auto_tag: true
+      registory: localhost:5000
+      tags:
+      - latest
+      - 0.0.1
     when:
       branch: [ master, develop ]
       event: push
