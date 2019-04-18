@@ -34,6 +34,9 @@ pipeline:
     dockerfile: Dockerfile
     mount:
       - /build/target
+    settings:
+      repo: demo/sample
+      tags: latest
     when:
       branch: [ master, develop ]
       event: push
