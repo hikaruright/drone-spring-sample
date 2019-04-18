@@ -16,15 +16,15 @@ pipeline:
       branch: [ master, develop ]
       event: push
       
-  # rebuild-cache:
-  #   image: drillster/drone-volume-cache
-  #   rebuild: true
-  #   mount:
-  #     - ./target
-  #   ttl: 7
-  #   when:
-  #     branch: [ master, develop ]
-  #     event: push
+  rebuild-cache:
+    image: drillster/drone-volume-cache
+    rebuild: true
+    mount:
+      - ./target
+    ttl: 7
+    when:
+      branch: [ master, develop ]
+      event: push
     
   deploy:
     image: plugins/docker
