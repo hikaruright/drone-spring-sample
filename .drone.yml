@@ -21,6 +21,9 @@ pipeline:
     rebuild: true
     mount:
       - /build/target
+    commands:
+      - ls /build
+      - ls /build/target
     ttl: 7
     when:
       branch: [ master, develop ]
