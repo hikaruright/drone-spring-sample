@@ -10,6 +10,9 @@ RUN tar -C /opt -xvzf /tmp/apache-tomcat.tar.gz
 RUN ln -s /opt/apache-tomcat-${TOMCAT_VERSION} ${TOMCAT_HOME}
 RUN rm -rf ${TOMCAT_HOME}/webapps/*
 
+RUN ls /build
+RUN ls /build/target
+
 RUN cp /build/target/boot-sample-0.0.1-SNAPSHOT.war ${TOMCAT_HOME}/webapps/
 
 EXPOSE 8080
