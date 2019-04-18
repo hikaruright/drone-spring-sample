@@ -17,7 +17,11 @@ ENV TOMCAT_NATIVE_LIBDIR $CATALINA_HOME/native-jni-lib
 
 ENV LD_LIBRARY_PATH ${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}$TOMCAT_NATIVE_LIBDIR
 
+# Avoid to Network Error 
+# RUN rm -f /etc/resolv.conf
+# RUN echo "nameserver 8.8.8.8" > /etc/resolv.conf
 
+RUN sudo apt install debian-archive-keyring
 
 # runtime dependencies for Tomcat Native Libraries
 
