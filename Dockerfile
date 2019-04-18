@@ -21,7 +21,7 @@ ENV LD_LIBRARY_PATH ${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}$TOMCAT_NATIVE_LIBDIR
 # RUN rm -f /etc/resolv.conf
 # RUN echo "nameserver 8.8.8.8" > /etc/resolv.conf
 
-RUN sudo apt install debian-archive-keyring
+RUN apt install debian-archive-keyring
 
 # runtime dependencies for Tomcat Native Libraries
 
