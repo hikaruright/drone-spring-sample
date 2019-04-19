@@ -35,7 +35,9 @@ pipeline:
     mount:
       - /build/target
     auto_tag: true
-    repo: hikaruright/spring-test
+    settings:
+      repo: hikaruright/spring-test
+      auto_tag: true
     when:
       branch: [ master, develop ]
       event: push
