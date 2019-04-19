@@ -34,10 +34,12 @@ pipeline:
     dockerfile: Dockerfile
     mount:
       - /build/target
-    auto_tag: true
     settings:
       repo: hikaruright/spring-test
-      auto_tag: true
+      tags:
+      - latest
+      - 1.0.0
+      - 0.0.1
     when:
       branch: [ master, develop ]
       event: push
